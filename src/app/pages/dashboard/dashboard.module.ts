@@ -3,12 +3,14 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './container/dashboard.component';
+import {HeaderModule} from '../../features/header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    DashboardRoutingModule
+    HeaderModule,
+    DashboardRoutingModule,
   ],
   entryComponents: [],
   exports: [

@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import {HeaderModule} from './features/header/header.module';
 import {AuthenticationModule} from './pages/authentication/authentication.module';
 import {DashboardModule} from './pages/dashboard/dashboard.module';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {AuthGuardService} from './features/authentication/services/auth-guard.service';
+import {AuthService} from './features/authentication/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,11 @@ import {DashboardModule} from './pages/dashboard/dashboard.module';
     AuthenticationModule,
     DashboardModule
   ],
-  providers: [],
+  providers: [
+    JwtHelperService,
+    AuthGuardService,
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

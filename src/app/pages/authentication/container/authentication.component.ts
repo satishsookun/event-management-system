@@ -8,7 +8,5 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 export class AuthenticationComponent {
 
-
-
   constructor() {}
 }

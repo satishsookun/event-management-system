@@ -1,0 +1,50 @@
+.input-group {
+  width: 100%;
+  display: flex;
+}
+.input-fluid {
+  width: 100%;
+}
+.mat-form-field {
+  width: 100%;
+  font-family: $font-primary-medium !important;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: rgba($white-color, 0.3);
+}
+
+.mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: rgba($white-color, 0.42);
+}
+.mat-form-field-ripple {
+ background-color: rgba($white-color, 0.87);
+}
+
+.mat-form-field-label {
+  color: $white-color;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: rgba($secondary-color, 0.87);
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: rgba($secondary-color, 0.87);
+}
+
+.mat-input-element {
+  // color: $primary-color !important;
+}
+
+.input-error .mat-input-element {
+  caret-color: #f44336 !important;
+}
+.input-error .mat-form-field-label {
+  color: #f44336 !important;
+}
+
+.input-error.mat-form-field .mat-form-field-ripple, .input-error.mat-form-field .mat-form-field-ripple.mat-accent {
+  background-color: #f44336 !important;
+  opacity: 1;
+  transform: scaleX(1);
+}

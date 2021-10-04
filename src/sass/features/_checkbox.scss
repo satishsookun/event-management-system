@@ -1,0 +1,63 @@
+
+/*=============================================Angular material - CHECKBOX===============================*/
+.mat-checkbox-background, .mat-checkbox-frame {
+  border-radius: 0 !important;
+}
+
+.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  background-color: $secondary-color !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $white-color !important;
+}
+
+.mat-checkbox-frame {
+  border-color: $white-color !important;
+}
+
+.mat-checkbox-checked {
+  .mat-checkbox-frame {
+    border: 2px solid $secondary-color !important;
+  }
+  .mat-checkbox-checkmark-path {
+    stroke: $secondary-color !important;
+  }
+  .mat-checkbox-inner-container {
+    border: 2px solid $secondary-color;
+    transition: border-color 90ms cubic-bezier($secondary-color, 1) !important;
+  }
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+  font-family: $font-primary-regular;
+  font-size: 14px;
+  padding-left: 5px;
+  color: $white-color !important;
+}
+
+.mat-checkbox-disabled {
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: grey !important;
+  }
+
+  .mat-checkbox-layout {
+    opacity: .6;
+  }
+}
+
+.mat-checkbox-inner-container {
+  box-sizing: border-box;
+  height: 22px !important;
+  width: 22px !important;
+}
+
+.mat-checkbox--white {
+  .mat-checkbox-frame {
+    border-color: $white-color !important;
+  }
+}
+
+
+/*=============================================Angular material - CHECKBOX===============================*/

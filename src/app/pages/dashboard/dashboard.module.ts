@@ -12,10 +12,10 @@ import {HeaderModule} from '../../features/header/header.module';
     HeaderModule,
     DashboardRoutingModule,
   ],
-  entryComponents: [],
-  exports: [
-    DashboardComponent,
+  entryComponents: [
+    DashboardComponent
   ],
+  exports: [],
   declarations: [
     DashboardComponent,
   ],

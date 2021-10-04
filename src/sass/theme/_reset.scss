@@ -1,8 +1,10 @@
 * {
   box-sizing: border-box;
 }
-
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ol, ul, li, article, footer, header, menu, nav, section, summary, mark, audio, video {
+html, body {
+  height: 100%;
+}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ol, ul, li, article, footer, header, menu, nav, section, summary, mark, audio, video, blockquote {
   margin: 0;
   padding: 0;
   border: 0;

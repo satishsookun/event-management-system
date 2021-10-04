@@ -1,0 +1,29 @@
+$paddings: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50; // insert value to create margin-[top, right, bottom, left] HERE
+
+@each $padding in $paddings {
+  .p-#{$padding} {
+    padding: #{$padding}px !important;
+  }
+  .pt-#{$padding} {
+    padding-top: #{$padding}px !important;
+  }
+  .pb-#{$padding} {
+    padding-bottom: #{$padding}px !important;
+  }
+  .pl-#{$padding} {
+    padding-left: #{$padding}px !important;
+  }
+  .pr-#{$padding} {
+    padding-right: #{$padding}px !important;
+  }
+  .px-#{$padding} {
+    padding-right: #{$padding}px !important;
+    padding-left: #{$padding}px !important;
+  }
+  .py-#{$padding} {
+    padding-top: #{$padding}px !important;
+    padding-bottom: #{$padding}px !important;
+  }
+
+}
+/*Output will be: Ex pt-5, pr-5, pl-5, pb-5*/

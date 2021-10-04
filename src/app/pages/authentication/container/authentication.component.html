@@ -9,15 +9,21 @@
         <div class="authentication__slogan">Let's prepare our events...</div>
       </div>
       <div class="authentication__desc">
-        We came with a better solution for you.. Try our new service where you can plan your <span class="primary-color">EVENTS...</span>
+        <blockquote>
+          We came with a better <br>solution for <span class="primary-color">you..</span>
+        </blockquote>
       </div>
-    </div>
-
-    <div class="authentication__side-actions">
-
+      <div class="authentication__side-actions">
+        <ev-create-action
+          *ngIf="!isCreateModuleLoaded"
+          (redirectToCreate)="redirectToCreate()"></ev-create-action>
+        <ev-login-action
+          *ngIf="isCreateModuleLoaded"
+          (redirectToLogin)="redirectToLogin()"></ev-login-action>
+      </div>
     </div>
   </div>
   <div class="authentication__user-details">
-    details
+    <router-outlet></router-outlet>
   </div>
 </div>

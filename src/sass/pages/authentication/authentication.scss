@@ -1,14 +1,33 @@
 $left-section-bg-color: $secondary-color;
 $left-section-desc-text-color: $white-color;
 .authentication {
-  background-image: url("../../../assets/images/authentication/bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   height: 100vh;
   width: 100%;
   padding: 0 100px;
-
+  position: relative;
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/images/authentication/bg1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -2;
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: rgb($black-color, 0.3);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
   &__info {
     width: 50%;
     background-color: rgba($left-section-bg-color, 0.9);
@@ -16,7 +35,11 @@ $left-section-desc-text-color: $white-color;
     padding: 100px;
   }
 
-  &__corporate {}
+  &__corporate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   &__logo {
     color: $white-color;
@@ -36,21 +59,69 @@ $left-section-desc-text-color: $white-color;
   }
 
   &__desc {
-    margin-top: 150px;
-    font-family: $font-primary-regular;
-    color: $left-section-desc-text-color;
-    font-size: 40px;
-    padding: 0 100px 50px 0;
-    font-style: italic;
+    margin-top: 100px;
+    blockquote {
+      padding: 10px 30px;
+      position: relative;
+      font-family: $font-primary-bold;
+      color: $left-section-desc-text-color;
+      font-size: 48px;
+      font-style: italic;
+      text-align: center;
+      line-height: 70px;
+
+      &:before {
+        content: '\201C';
+        position: absolute;
+        top: 0;
+        left: 10px;
+      }
+
+      span {
+        position: relative;
+        padding-right: 30px;
+        &:after {
+          content: '\201D';
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          color: $white-color;
+        }
+      }
+    }
   }
 
-  &__side-actions {}
+  &__side-actions {
+    margin-top: 100px;
+
+    &__title {
+      font-size: 44px;
+      font-family: $font-primary-bold;
+      color: $primary-color;
+      text-align: center;
+      line-height: 48px;
+    }
+
+    &__desc {
+      color: $white-color;
+      font-size: 18px;
+      font-family: $font-primary-regular;
+      margin-bottom: 50px;
+      text-align: center;
+      line-height: 25px;
+      margin-top: 10px;
+    }
+
+    button {
+      margin: 0 auto;
+    }
+  }
 
   &__user-details {
     width: 50%;
     margin-left: 50px;
     border-radius: 50px;
-    border: 2px solid $white-color;
     padding: 50px;
+    position: relative;
   }
 }

@@ -1,0 +1,6 @@
+/*=================================DISABLED ELEMENTS=================================*/
+.disabled {
+  opacity: 0.7 !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}

@@ -1,0 +1,34 @@
+<form class="account"
+      [formGroup]="userLogin"
+      novalidate>
+  <h2 class="account__title">Log in</h2>
+  <div class="input-group">
+    <div class="account__input mr-15 mb-0">
+      <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && userLogin.get('userName').invalid)}">
+        <mat-label>User name</mat-label>
+        <input matInput formControlName="userName" type="text" />
+      </mat-form-field>
+      <span class="error" *ngIf="isSubmitted && userLogin.get('userName').invalid">Field required</span>
+    </div>
+    <div>{{userLogin.get('userName').valid}}</div>
+    <div class="account__input ml-15 mb-0">
+      <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && userLogin.get('password').invalid)}">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="text" />
+      </mat-form-field>
+      <span class="error" *ngIf="isSubmitted && userLogin.get('password').value === ''">Field required</span><br>
+      <span class="error" *ngIf="isSubmitted && userLogin.get('password').value !== '' && userLogin.get('password').invalid">Minimum 6 characters</span>
+    </div>
+  </div>
+  <span class="error" *ngIf="noProfileFound">User name or password is invalid</span>
+
+  <div class="account__cta">
+    <button
+      type="button"
+      class="btn btn--secondary"
+      (click)="onLogin()">
+      Log in
+    </button>
+  </div>
+
+</form>

@@ -1,0 +1,112 @@
+<form class="account"
+  [formGroup]="createUser"
+  novalidate>
+
+  <h2 class="account__title">Create an account</h2>
+
+  <div class="input-group">
+    <div class="account__input mr-15">
+      <mat-form-field appearance="fill"  [ngClass]="{'input-error': (isSubmitted && createUser.get('firstName').invalid)}">
+        <mat-label>First name</mat-label>
+        <input matInput formControlName="firstName" type="text" />
+      </mat-form-field>
+
+      <span class="error" *ngIf="isSubmitted && createUser.get('firstName').value !== '' && createUser.get('firstName').invalid">
+        First name must contain only letters
+      </span>
+      <span class="error" *ngIf="isSubmitted && createUser.get('firstName').value === ''">
+        Field required
+      </span>
+    </div>
+
+    <div class="account__input ml-15">
+      <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('lastName').invalid)}">
+        <mat-label>Last name</mat-label>
+        <input matInput formControlName="lastName" type="text" />
+      </mat-form-field>
+
+      <span class="error" *ngIf="isSubmitted && createUser.get('lastName').value !== '' && createUser.get('lastName').invalid">
+        Last name must contain only letters
+      </span>
+      <span class="error" *ngIf="isSubmitted && createUser.get('lastName').value === ''">
+        Field required
+      </span>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="account__input mr-15">
+      <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('userName').invalid)}">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="userName" type="text" />
+      </mat-form-field>
+
+      <span class="error" *ngIf="isSubmitted && createUser.get('userName').invalid">
+        Field required
+      </span>
+    </div>
+
+    <div class="account__input ml-15">
+      <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('password').invalid)}">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" />
+      </mat-form-field>
+
+      <span class="error" *ngIf="isSubmitted && createUser.get('password').value !== '' && createUser.get('password').invalid">
+        Password must contain more than 6 characters
+      </span>
+      <span class="error" *ngIf="isSubmitted && createUser.get('password').value === ''">
+        Field required
+      </span>
+    </div>
+  </div>
+
+  <div class="account__input input-fluid">
+    <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('email').invalid)}">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" />
+    </mat-form-field>
+
+    <span class="error" *ngIf="isSubmitted && createUser.get('email').value !== '' && createUser.get('email').invalid">
+        Please enter a valid email address
+      </span>
+    <span class="error" *ngIf="isSubmitted && createUser.get('email').value === ''">
+        Field required
+      </span>
+  </div>
+
+  <div class="account__input input-fluid">
+    <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('phone').invalid)}">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" type="tel" />
+    </mat-form-field>
+
+    <span class="error" *ngIf="isSubmitted && createUser.get('phone').value !== '' && createUser.get('phone').invalid">
+        Please enter a valid phone number
+      </span>
+    <span class="error" *ngIf="isSubmitted && createUser.get('phone').value === ''">
+        Field required
+      </span>
+  </div>
+
+  <div class="account__cta">
+    <div class="account__validate">
+      <mat-checkbox
+        class="checkBox"
+        (change)="updateFilters()"
+        id="term"
+        [checked]="isTermAccepted"
+        value="term"
+      >
+      I accept terms and conditions & privacy policy
+      </mat-checkbox>
+    </div>
+    <button
+      type="button"
+      class="btn btn--secondary"
+      [ngClass]="{'disabled': !isTermAccepted}"
+      (click)="onCreate()">
+      Create
+    </button>
+  </div>
+</form>

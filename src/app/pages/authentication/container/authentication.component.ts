@@ -34,7 +34,7 @@ export class AuthenticationComponent implements OnInit, OnDestroy {
 
   private userStore(): void {
     let existedUsers = localStorage.getItem('register') ? JSON.parse(localStorage.getItem('register') as any) : [];
-    this._userStore.userProfiles(existedUsers);
+    this._userStore.usersProfile(existedUsers);
   }
 
   ngOnDestroy(): void {

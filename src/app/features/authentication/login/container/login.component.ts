@@ -52,12 +52,17 @@ export class LoginComponent implements OnInit {
       this._authService.login(this.userLogin.value, this._users).subscribe( (loggedUser: UserModel) => {
         if (loggedUser) {
           this.noProfileFound = false;
+          this._userStore.loggedUserData(loggedUser);
           this._router.navigate(['homepage']);
         } else {
           this.noProfileFound = true;
         }
       })
     }
+  }
+
+  public initEventStore(userUuid: string): void {
+    localStorage.setItem('events', null)
   }
 
 

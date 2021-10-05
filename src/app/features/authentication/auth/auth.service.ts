@@ -6,6 +6,7 @@ import {Observable, of} from 'rxjs';
 export class AuthService {
 
   private _isLoggedIn: boolean;
+  private _userUuid: string;
 
   constructor() {}
 
@@ -15,13 +16,18 @@ export class AuthService {
 
     const isPasswordMatched = users
       .find( (user: UserModel) => user.password === userLog.password);
-
+    const loggedUser = (isUserNameMatched && isPasswordMatched);
+    this._userUuid = loggedUser.uuid;
     this._isLoggedIn = (!!isUserNameMatched && !!isPasswordMatched);
     return of(isUserNameMatched && isPasswordMatched)
   }
 
   public isUserLoggedIn(): boolean {
     return this._isLoggedIn;
+  }
+
+  public loggedUserUuid(): string {
+    return this._userUuid;
   }
 
   public logoutUser(): void{

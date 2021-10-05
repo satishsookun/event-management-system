@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserModel} from '../../models/user.model';
 import {UserStoreService} from '../../../../shared/services/user-store.service';
 import {Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ev-account-create',
@@ -21,6 +22,7 @@ export class CreateComponent implements OnInit, OnDestroy {
   constructor (
     private _fb: FormBuilder,
     private _userStore: UserStoreService,
+    private _router: Router,
   ) {
     this.isTermAccepted = false;
     this.createUser = this._fb.group({});
@@ -47,6 +49,7 @@ export class CreateComponent implements OnInit, OnDestroy {
       password: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.pattern(emailReg)]],
       phone: ['', [Validators.required, Validators.pattern(phoneReg)]],
+      uuid: []
     });
   }
 
@@ -57,9 +60,10 @@ export class CreateComponent implements OnInit, OnDestroy {
   public onCreate() {
     this.isSubmitted = true;
     if (this.createUser.valid) {
+      this.createUser.get('uuid').setValue(this.generateUuid(3));
       this._existingUsers.push(this.createUser.value);
-      this._existingUsers[0].uuid = this.generateUuid(3);
-      this._userStore.userProfiles(this._existingUsers);
+      this._userStore.updateUserProfiles(this._existingUsers);
+      this._router.navigate(['account/login'])
     }
   }
 

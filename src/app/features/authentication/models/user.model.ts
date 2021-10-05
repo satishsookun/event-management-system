@@ -14,9 +14,3 @@ export interface LoginUserType {
   userName: string;
   password: string;
 }
-export interface EventModel {
-  uuid:string;
-  name: string;
-  date: Time;
-  description: string;
-}

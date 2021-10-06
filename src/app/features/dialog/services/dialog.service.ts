@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs/internal/BehaviorSubject';
 import {Observable} from 'rxjs/internal/Observable';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class DialogService {
 
-    private _dialogData$: BehaviorSubject<any>;
+    private _dialogData$: Subject<any>;
     private _dialogData: any = null;
 
     constructor() {
-        this._dialogData$ = new BehaviorSubject<any>(this._dialogData);
+        this._dialogData$ = new Subject<any>();
     }
 
     public dialogData(dialogData: any) {
@@ -21,7 +21,4 @@ export class DialogService {
         return this._dialogData$.asObservable();
     }
 
-    public resetDialog(){
-        this.dialogData(null);
-    }
 }

@@ -12,20 +12,17 @@ export class ConfirmDialog implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ConfirmDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogService: DialogService,
+    private _dialogService: DialogService,
   ) {}
 
-  ngOnInit() {
-    this.data.publishedStatusValidation = false;
-  }
+  ngOnInit() {}
 
   onCancel() {
     this.dialogRef.close();
   }
 
   onConfirm() {
-    this.dialogService.dialogData(this.data);
-    this.dialogService.resetDialog();
+    this._dialogService.dialogData(this.data.uuid);
     this.dialogRef.close();
   }
 }

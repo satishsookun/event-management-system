@@ -25,8 +25,8 @@ export class EventStoreService {
   }
 
   private eventStore(): EventsModel {
-    const eventStore = JSON.parse(localStorage.getItem('events'));
-    return eventStore;
+    const eventsStore = JSON.parse(localStorage.getItem('events'));
+    return eventsStore;
   }
 
   public createEvent(userUuid: string, eventDetails: EventModel): void {
@@ -40,6 +40,30 @@ export class EventStoreService {
     const eventsByUser = eventsStore[userUuid];
 
     return of(eventsByUser);
+  }
+
+  public deleteEvent(eventUuid: string, userUuid: string): Observable<EventModel[]> {
+    const getEventStore = this.eventStore();
+    const removeEvent = getEventStore[userUuid].filter( (event: EventModel) => !(event.uuid === eventUuid));
+    getEventStore[userUuid] = [...removeEvent];
+    localStorage.setItem('events', JSON.stringify(getEventStore));
+    return of(removeEvent);
+  }
+
+  public eventByUuid(eventUuid: string, userUuid: string): Observable<EventModel> {
+    const getEventStore = this.eventStore();
+    const editedEvent = getEventStore[userUuid].find( (event: EventModel) => event.uuid === eventUuid);
+    return of(editedEvent);
+  }
+
+  public saveEvent(eventUuid: string, userUuid: string, eventDetails: EventModel): Observable<EventsModel> {
+    const getEventStore = this.eventStore();
+    const objIndex = getEventStore[userUuid].findIndex( (event: EventModel) => event.uuid === eventUuid);
+    getEventStore[userUuid][objIndex] = eventDetails;
+    getEventStore[userUuid][objIndex].uuid = eventUuid;
+
+    localStorage.setItem('events', JSON.stringify(getEventStore));
+    return of(getEventStore)
   }
 
 }

@@ -6,6 +6,12 @@ $left-section-desc-text-color: $white-color;
   width: 100%;
   padding: 0 100px;
   position: relative;
+  @media only screen and (max-width: 1300px) {
+    padding: 0 75px;
+  }
+  @media only screen and (max-width: 1100px) {
+    padding: 0 50px;
+  }
   &:before {
     position: absolute;
     content: '';
@@ -32,7 +38,7 @@ $left-section-desc-text-color: $white-color;
     width: 50%;
     background-color: rgba($left-section-bg-color, 0.9);
     margin-right: 50px;
-    padding: 100px;
+    padding: 100px 25px;
   }
 
   &__corporate {
@@ -40,12 +46,31 @@ $left-section-desc-text-color: $white-color;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    @media only screen and (max-width: 1300px) {
+      height: 60vh;
+    }
+    ev-logo {
+      display: flex;
+      justify-content: center;
+    }
     .logo {
       padding: 0;
+      width: 400px;
+      @media only screen and (max-width: 1500px) {
+        width: 350px;
+      }
       a {
         color: $white-color;
         font-size: 90px;
+        @media only screen and (max-width: 1500px) {
+          font-size: 78px;
+        }
+        @media only screen and (max-width: 1300px) {
+          font-size: 70px;
+        }
+        @media only screen and (max-width: 1100px) {
+
+        }
         span {
           font-size: 50px;
         }
@@ -62,19 +87,30 @@ $left-section-desc-text-color: $white-color;
       position: relative;
       font-family: $font-primary-bold;
       color: $left-section-desc-text-color;
-      font-size: 48px;
+      font-size: 45px;
       font-style: italic;
       text-align: center;
-      line-height: 70px;
-
-      &:before {
-        content: '\201C';
-        position: absolute;
-        top: 0;
-        left: 10px;
+      line-height: 50px;
+      @media only screen and (max-width: 1500px) {
+        font-size: 35px;
+        line-height: 40px;
       }
 
-      span {
+      @media only screen and (max-width: 1300px) {
+        font-size: 30px;
+        line-height: 35px;
+      }
+
+      .begin {
+        position: relative;
+        &:before {
+          content: '\201C';
+          position: absolute;
+          top: 0;
+          left: -30px;
+        }
+      }
+      .last {
         position: relative;
         padding-right: 30px;
         &:after {
@@ -96,6 +132,10 @@ $left-section-desc-text-color: $white-color;
       color: $primary-color;
       text-align: center;
       line-height: 48px;
+      @media only screen and (max-width: 1500px) {
+        font-size: 35px;
+        line-height: 40px;
+      }
     }
 
     &__desc {
@@ -106,6 +146,10 @@ $left-section-desc-text-color: $white-color;
       text-align: center;
       line-height: 25px;
       margin-top: 10px;
+      @media only screen and (max-width: 1500px) {
+        font-size: 16px;
+        line-height: 20px;
+      }
     }
 
     button {
@@ -119,5 +163,11 @@ $left-section-desc-text-color: $white-color;
     border-radius: 50px;
     padding: 50px 0;
     position: relative;
+    @media only screen and (max-width: 1300px) {
+      margin-left: 25px;
+    }
+    @media only screen and (max-width: 1100px) {
+      margin-left: 0;
+    }
   }
 }

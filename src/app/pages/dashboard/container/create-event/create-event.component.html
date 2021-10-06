@@ -1,6 +1,6 @@
 <div class="create-event">
   <h2>
-    Create an event
+    {{title}}
   </h2>
 
   <div class="create-event__content">
@@ -54,10 +54,18 @@
 
     <div class="create-event__cta">
       <button
+        *ngIf="!isEditInterface"
         type="button"
         class="btn btn--secondary"
         (click)="onCreate()">
         Create
+      </button>
+      <button
+        *ngIf="isEditInterface"
+        type="button"
+        class="btn btn--secondary"
+        (click)="onEdit()">
+        Save
       </button>
     </div>
   </div>

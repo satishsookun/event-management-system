@@ -7,11 +7,18 @@
       <li *ngFor="let event of userEvents">
         <ev-event
           [event]="event"
+          (emitDeleteEvent)="onDeleteEvent($event)"
         ></ev-event>
       </li>
     </ul>
   </div>
   <div class="events__no-list" *ngIf="userEvents.length < 1">
-    no event found
+    <h3>Create an event</h3>
+    <a href=""
+       class="btn btn--primary"
+        [routerLink]="'/homepage/create-event'">
+      Create
+    </a>
+
   </div>
 </div>

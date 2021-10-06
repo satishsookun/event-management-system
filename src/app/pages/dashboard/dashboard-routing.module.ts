@@ -20,6 +20,10 @@ const routes: Routes = [
       {
         path: 'create-event',
         component: CreateEventComponent,
+      },
+      {
+        path: ':id/edit-event',
+        component: CreateEventComponent,
       }
     ],
   }

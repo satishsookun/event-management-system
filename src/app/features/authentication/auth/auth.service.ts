@@ -10,13 +10,11 @@ export class AuthService {
   constructor() {}
 
   public login(userLog: LoginUserType, users: UserModel[]): Observable<UserModel> {
-    const isUserNameMatched = users
-      .find( (user: UserModel) => user.userName === userLog.userName);
+    const isUserMatched = users
+      .find( (user: UserModel) => (user.userName === userLog.userName) && user.password === userLog.password);
 
-    const isPasswordMatched = users
-      .find( (user: UserModel) => user.password === userLog.password);
-    this._isLoggedIn = (!!isUserNameMatched && !!isPasswordMatched);
-    return of(isUserNameMatched && isPasswordMatched)
+    this._isLoggedIn = (!!isUserMatched);
+    return of(isUserMatched)
   }
 
   public setUserLoginToken(isLogged: boolean) {

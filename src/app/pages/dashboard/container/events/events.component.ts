@@ -16,6 +16,7 @@ export class EventsComponent implements OnInit, OnDestroy {
 
   private _loggedUserUuid: string;
   private _userEventSubs: Subscription;
+  private _eventsSubs: Subscription;
 
   constructor(
     private _eventStore: EventStoreService,
@@ -29,6 +30,7 @@ export class EventsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this._userEventSubs) this._userEventSubs.unsubscribe();
+    if (this._eventsSubs) this._eventsSubs.unsubscribe();
   }
 
   private loggedUserUuid(): void {
@@ -39,6 +41,12 @@ export class EventsComponent implements OnInit, OnDestroy {
     this._userEventSubs = this._eventStore.userEvents(this._loggedUserUuid).subscribe( (events: EventModel[]) => {
       this.userEvents = events;
     })
+  }
+
+  public onDeleteEvent(eventUuid: string): void {
+    this._eventsSubs = this._eventStore.deleteEvent(eventUuid, this._loggedUserUuid).subscribe( (events: EventModel[]) => {
+      this.userEvents = events;
+    });
   }
 
 }

@@ -1,23 +1,26 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserStoreService} from '../../../../shared/services/user-store.service';
 import {AuthService} from '../../auth/auth.service';
 import {AuthGuardService} from '../../auth/auth-guard.service';
 import {Router} from '@angular/router';
 import {UserModel} from '../../models/user.model';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'ev-account-login',
   templateUrl: './login.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent implements OnInit {
-
-  private _users: UserModel[];
+export class LoginComponent implements OnInit, OnDestroy {
 
   public userLogin: FormGroup;
   public noProfileFound = false;
   public isSubmitted = false;
+
+  private _users: UserModel[];
+  private _loginSubs: Subscription;
+
 
   constructor(
     private _fb: FormBuilder,
@@ -32,6 +35,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.setupForm();
     this.initUsers();
+  }
+
+  ngOnDestroy(): void {
+    if (this._loginSubs) this._loginSubs.unsubscribe();
   }
 
   private initUsers(): void {
@@ -49,10 +56,11 @@ export class LoginComponent implements OnInit {
   public onLogin(): void {
     this.isSubmitted = true;
     if (this.userLogin.valid) {
-      this._authService.login(this.userLogin.value, this._users).subscribe( (loggedUser: UserModel) => {
+      this._loginSubs = this._authService.login(this.userLogin.value, this._users).subscribe( (loggedUser: UserModel) => {
         if (loggedUser) {
           this.noProfileFound = false;
-          this._userStore.loggedUserData(loggedUser);
+          this._userStore.loggedUserData(loggedUser.uuid);
+          this.initiateEvent(loggedUser.uuid);
           this._router.navigate(['homepage']);
         } else {
           this.noProfileFound = true;
@@ -61,9 +69,13 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  public initEventStore(userUuid: string): void {
-    localStorage.setItem('events', null)
-  }
+  /**
+   *
+   * @param userUuid
+   */
+  private initiateEvent(userUuid: string): void {
+    localStorage.setItem('token', userUuid);
 
+  }
 
 }

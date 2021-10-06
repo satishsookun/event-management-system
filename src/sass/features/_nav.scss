@@ -1,0 +1,84 @@
+.nav {
+  ul {
+    li {
+      margin: 25px 50px;
+    }
+  }
+  &__action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    position: relative;
+    transition: $general-transition;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      background-color: rgba($tertiary-color, 0.2);
+      width: 90%;
+      height: 100%;
+      z-index: 0;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      transition: $general-transition;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      background-color: $primary-color;
+      width: 0;
+      height: 100%;
+      z-index: 1;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      transition: $general-transition;
+    }
+    &:hover {
+
+      &:after {
+        width: 90%;
+      }
+      span {
+        color: $primary-color;
+      }
+      .nav__icon {
+        background-color: darken($tertiary-color, 9);
+      }
+      .nav__label {
+        color: $white-color;
+      }
+    }
+    span {
+      position: relative;
+      z-index: 2;
+    }
+  }
+  &__icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $tertiary-color;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    transition: $general-transition;
+
+    .mat-icon {
+      color: $white-color;
+    }
+  }
+
+  &__label {
+    width: 80%;
+    text-align: center;
+    color: $primary-color;
+    transition: $general-transition;
+  }
+}

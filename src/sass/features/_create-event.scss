@@ -1,0 +1,20 @@
+.create-event {
+  h2 {
+    font-size: 44px;
+    color: $primary-color;
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    padding: 50px;
+    background-color: rgb($tertiary-color, 0.1);
+    margin-right: 100px;
+    border-radius: 10px;
+    @media only screen and (max-width: 1300px) {
+      margin-right: 75px;
+    }
+    @media only screen and (max-width: 1100px) {
+      margin-right: 50px;
+    }
+  }
+}

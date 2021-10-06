@@ -1,0 +1,16 @@
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: $primary-color;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgb($primary-color, 0.42);
+}
+
+.mat-form-field-appearance-legacy {
+  .mat-input-element {
+    color: $white-color;
+  }
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-flex {
+  background-color: rgba($white-color, 0.3);
+}

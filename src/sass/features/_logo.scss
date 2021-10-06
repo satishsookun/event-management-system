@@ -1,0 +1,19 @@
+.logo {
+  padding: 100px 50px 50px;
+  width: 100%;
+  a {
+    color: $secondary-color;
+    font-size: 60px;
+    font-family: $font-secondary-regular;
+    span {
+      font-size: 20px;
+    }
+  }
+  &__slogan {
+    margin-top: 10px;
+    color: $primary-color;
+    font-size: $font-size-md;
+    text-align: right;
+    font-style: italic;
+  }
+}

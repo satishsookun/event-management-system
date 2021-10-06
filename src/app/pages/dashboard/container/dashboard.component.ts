@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {UserStoreService} from '../../../shared/services/user-store.service';
 
 @Component({
   selector: 'ev-dashboard',
@@ -6,6 +7,18 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class DashboardComponent {
-  
+export class DashboardComponent implements OnInit {
+
+  constructor(
+    private _userStore: UserStoreService,
+  ) {}
+
+  ngOnInit(): void {
+    this.userStore();
+  }
+
+  private userStore(): void {
+    let existedUsers = localStorage.getItem('register') ? JSON.parse(localStorage.getItem('register') as any) : [];
+    this._userStore.usersProfile(existedUsers);
+  }
 }

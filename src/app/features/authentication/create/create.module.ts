@@ -7,6 +7,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserStoreService} from '../../../shared/services/user-store.service';
+import {EventStoreService} from '../../../shared/services/event-store.service';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import {UserStoreService} from '../../../shared/services/user-store.service';
   ],
   providers: [
     UserStoreService,
+    EventStoreService,
   ],
 })
 

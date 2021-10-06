@@ -5,7 +5,7 @@
   <h2 class="account__title">Create an account</h2>
 
   <div class="input-group">
-    <div class="account__input mr-15">
+    <div class="input-wrapper mr-15">
       <mat-form-field appearance="fill"  [ngClass]="{'input-error': (isSubmitted && createUser.get('firstName').invalid)}">
         <mat-label>First name</mat-label>
         <input matInput formControlName="firstName" type="text" />
@@ -19,7 +19,7 @@
       </span>
     </div>
 
-    <div class="account__input ml-15">
+    <div class="input-wrapper ml-15">
       <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('lastName').invalid)}">
         <mat-label>Last name</mat-label>
         <input matInput formControlName="lastName" type="text" />
@@ -35,7 +35,7 @@
   </div>
 
   <div class="input-group">
-    <div class="account__input mr-15">
+    <div class="input-wrapper mr-15">
       <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('userName').invalid)}">
         <mat-label>Username</mat-label>
         <input matInput formControlName="userName" type="text" />
@@ -46,7 +46,7 @@
       </span>
     </div>
 
-    <div class="account__input ml-15">
+    <div class="input-wrapper ml-15">
       <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('password').invalid)}">
         <mat-label>Password</mat-label>
         <input matInput formControlName="password" />
@@ -61,7 +61,7 @@
     </div>
   </div>
 
-  <div class="account__input input-fluid">
+  <div class="input-wrapper input-wrapper--fluid">
     <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('email').invalid)}">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" type="email" />
@@ -75,7 +75,7 @@
       </span>
   </div>
 
-  <div class="account__input input-fluid">
+  <div class="input-wrapper input-wrapper--fluid">
     <mat-form-field appearance="fill" [ngClass]="{'input-error': (isSubmitted && createUser.get('phone').invalid)}">
       <mat-label>Phone</mat-label>
       <input matInput formControlName="phone" type="tel" />

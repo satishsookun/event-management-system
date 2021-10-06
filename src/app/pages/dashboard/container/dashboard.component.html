@@ -1,9 +1,16 @@
 <div class="dashboard">
-  <header>
-    <ev-header></ev-header>
-  </header>
-  <div class="dashboard__user-info">
 
+  <div class="dashboard__side-bar">
+    <ev-side-bar></ev-side-bar>
   </div>
+
+  <div class="dashboard__content">
+    <header>
+      <ev-header></ev-header>
+    </header>
+    <div class="dashboard__events">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
 </div>
-DASHBOARD

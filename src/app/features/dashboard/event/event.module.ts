@@ -1,22 +1,21 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {HeaderComponent} from './container/header.component';
+import {EventComponent} from './container/event.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
   ],
-  exports: [
-    HeaderComponent
+  entryComponents: [
+    EventComponent
   ],
+  exports: [EventComponent],
   declarations: [
-    HeaderComponent,
+    EventComponent,
   ],
   providers: [],
 })
 
-export class HeaderModule {
-  
-}
+export class EventModule {}

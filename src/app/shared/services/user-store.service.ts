@@ -8,6 +8,7 @@ export class UserStoreService {
   private _users: UserModel[];
   private _isUserExisted$: BehaviorSubject<UserModel[]>;
   private _loggedUserData$: BehaviorSubject<UserModel>;
+  private _loggedUserUuid: string;
 
   constructor() {
     this._users$ = new BehaviorSubject<UserModel[]>([]);
@@ -26,14 +27,23 @@ export class UserStoreService {
   }
 
   usersProfile(existedUsers: UserModel[]) {
+    this._users = existedUsers;
     this._users$.next(existedUsers);
   }
 
-  public loggedUserData(userData: UserModel): void {
+  public loggedUserData(userUuid: string): void {
+    console.log(userUuid, '<<< uuid', this._users)
+    const userData = this._users.find( (user: UserModel) => user.uuid === userUuid);
+    console.log(userData, '<< userData')
+    this._loggedUserUuid = userData.uuid;
     this._loggedUserData$.next(userData);
   }
 
   public loggedUserData$(): Observable<UserModel> {
     return this._loggedUserData$.asObservable();
+  }
+
+  public loggedUserUuid(): string {
+    return this._loggedUserUuid;
   }
 }

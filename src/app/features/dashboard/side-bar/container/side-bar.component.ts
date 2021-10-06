@@ -1,11 +1,12 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
-  selector: 'ev-header',
-  templateUrl: './header.component.html',
+  selector: 'ev-side-bar',
+  templateUrl: './side-bar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class HeaderComponent {
-  
+export class SideBarComponent {
+
+  constructor () {}
 }

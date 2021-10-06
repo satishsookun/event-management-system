@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RoutingService} from './shared/services/routing.service';
 import {UserStoreService} from './shared/services/user-store.service';
 import {CommonModule} from '@angular/common';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {CommonModule} from '@angular/common';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    MatNativeDateModule,
 
     AppRoutingModule,
     AuthenticationModule,

@@ -5,7 +5,10 @@ Angular 12
 One page application
 
 ## Development server
+Copy and paste in your command prompt: https://github.com/satishsookun/event-management-system.git
+`npm i` (to install all dependencies)
 
+Run `ng serve -o` to open automatically in browser OR
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build

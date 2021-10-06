@@ -7,6 +7,7 @@ import {CreateModule} from '../../features/authentication/create/create.module';
 import {LoginModule} from '../../features/authentication/login/login.module';
 import {CreateActionComponent} from './ui/create-action/create-action.component';
 import {LoginActionComponent} from './ui/login-action/login-action.component';
+import {LogoModule} from '../../features/logo/logo.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import {LoginActionComponent} from './ui/login-action/login-action.component';
     RouterModule,
     AuthenticationRoutingModule,
     CreateModule,
-    LoginModule
+    LoginModule,
+    LogoModule
   ],
   entryComponents: [
     AuthenticationComponent

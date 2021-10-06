@@ -1,0 +1,17 @@
+<div class="events">
+  <h2>
+    Events: {{userEvents.length}}
+  </h2>
+  <div class="events__list" *ngIf="userEvents.length > 0">
+    <ul>
+      <li *ngFor="let event of userEvents">
+        <ev-event
+          [event]="event"
+        ></ev-event>
+      </li>
+    </ul>
+  </div>
+  <div class="events__no-list" *ngIf="userEvents.length < 1">
+    no event found
+  </div>
+</div>

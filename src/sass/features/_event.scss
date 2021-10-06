@@ -1,0 +1,42 @@
+.event {
+  margin-bottom: 30px;
+  margin-right: 100px;
+  border-radius: 10px;
+
+  table {
+    width: 100%;
+  }
+
+  &__heading {
+    padding: 20px 30px;
+    background-color: $tertiary-color;
+    border-bottom: 1px solid rgba($primary-color, 0.5);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    align-items: center;
+    color: $primary-color;
+    font-size: 16px;
+
+    span {
+      font-family: $font-primary-bold;
+    }
+  }
+
+  &__name {}
+
+  &__date {}
+
+  &__action {}
+
+  &__desc {
+    background-color: rgb($primary-color, 0.1);
+    padding: 20px 30px;
+  }
+
+  &__edit {}
+
+  &__delete {}
+}

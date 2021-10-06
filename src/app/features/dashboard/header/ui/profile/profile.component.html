@@ -1,0 +1,11 @@
+<div class="profile">
+  <button  class="profile__avatar" mat-button [matMenuTriggerFor]="beforeMenu">
+    <span>{{avatar}}</span>
+  </button>
+  <mat-menu class="profile__action" #beforeMenu="matMenu" xPosition="before">
+    <div class="profile__name">
+      Hi {{fullName}}
+    </div>
+    <button mat-menu-item (click)="onLogout()">Log out</button>
+  </mat-menu>
+</div>

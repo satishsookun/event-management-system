@@ -4,6 +4,7 @@ import {UserModel} from '../../models/user.model';
 import {UserStoreService} from '../../../../shared/services/user-store.service';
 import {Subscription} from 'rxjs';
 import {Router} from '@angular/router';
+import {EventStoreService} from '../../../../shared/services/event-store.service';
 
 @Component({
   selector: 'ev-account-create',
@@ -22,6 +23,7 @@ export class CreateComponent implements OnInit, OnDestroy {
   constructor (
     private _fb: FormBuilder,
     private _userStore: UserStoreService,
+    private _eventStore: EventStoreService,
     private _router: Router,
   ) {
     this.isTermAccepted = false;
@@ -63,6 +65,8 @@ export class CreateComponent implements OnInit, OnDestroy {
       this.createUser.get('uuid').setValue(this.generateUuid(3));
       this._existingUsers.push(this.createUser.value);
       this._userStore.updateUserProfiles(this._existingUsers);
+
+      this._eventStore.initEventStore(this.createUser.get('uuid').value);
       this._router.navigate(['account/login'])
     }
   }

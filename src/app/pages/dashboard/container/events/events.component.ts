@@ -1,4 +1,8 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
+import {EventStoreService} from '../../../../shared/services/event-store.service';
+import {UserStoreService} from '../../../../shared/services/user-store.service';
+import {EventModel} from '../../../../features/authentication/models/events.model';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'ev-events',
@@ -6,8 +10,35 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class EventsComponent {
+export class EventsComponent implements OnInit, OnDestroy {
 
-  constructor() {}
+  public userEvents: EventModel[];
+
+  private _loggedUserUuid: string;
+  private _userEventSubs: Subscription;
+
+  constructor(
+    private _eventStore: EventStoreService,
+    private _userStore: UserStoreService,
+  ) {}
+
+  ngOnInit(): void {
+    this.loggedUserUuid();
+    this.initUserEvents();
+  }
+
+  ngOnDestroy(): void {
+    if (this._userEventSubs) this._userEventSubs.unsubscribe();
+  }
+
+  private loggedUserUuid(): void {
+    this._loggedUserUuid = this._userStore.loggedUserUuid();
+  }
+
+  private initUserEvents(): void {
+    this._userEventSubs = this._eventStore.userEvents(this._loggedUserUuid).subscribe( (events: EventModel[]) => {
+      this.userEvents = events;
+    })
+  }
 
 }

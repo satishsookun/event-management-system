@@ -42,7 +42,6 @@ export class CreateEventComponent implements OnInit, OnDestroy {
 
   private loggedUserUuid(): void {
     this._loggedUserUuid = this._userStore.loggedUserUuid();
-    console.log(this._loggedUserUuid, 'uuid')
   }
 
   public onCreate(): void {

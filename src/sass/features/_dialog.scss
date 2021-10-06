@@ -1,0 +1,62 @@
+.mat-dialog-container {
+  padding: 0 !important;
+  border-radius: 10px !important;
+}
+.dialog {
+  &__header {
+    position: relative;
+    border-bottom: 1px solid rgba($primary-color, 0.3);
+    padding: 30px;
+    background-color: $tertiary-color;
+  }
+
+  &__title {
+    color: $white-color !important;
+    font-size: 30px !important;
+    font-family: $font-primary-medium !important;
+    margin: 0 !important;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background-color: transparent;
+
+    .mat-icon {
+      color: $primary-color;
+      font-size: 28px;
+    }
+  }
+
+  &__content {
+    padding: 30px;
+
+    label {
+      font-size: 24px;
+      font-family: $font-primary-medium;
+      color: $primary-color;
+      margin-bottom: 20px;
+      display: block;
+    }
+  }
+
+  &__desc {
+    color: #2E3243;
+    font-size: 18px;
+    font-family: $font-primary-regular;
+
+    span {
+      font-family: $font-primary-bold;
+    }
+  }
+
+  &__actions {
+    border-top: 1px solid rgba($primary-color, 0.4);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    background-color: $white-color;
+  }
+}

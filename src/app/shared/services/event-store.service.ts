@@ -1,15 +1,12 @@
 import {Injectable} from '@angular/core';
 import {EventModel, EventsModel} from '../../features/authentication/models/events.model';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 
 @Injectable()
 export class EventStoreService {
 
-  private _createEvents$: BehaviorSubject<EventsModel>;
 
-  constructor() {
-    this._createEvents$ = new BehaviorSubject<EventsModel>({});
-  }
+  constructor() {}
 
   public initEventStore(userUuid: string): void {
     const getExistingEvents = JSON.parse(localStorage.getItem('events'));
@@ -36,10 +33,13 @@ export class EventStoreService {
     const getEventStore = this.eventStore();
     getEventStore[userUuid] = [...getEventStore[userUuid], eventDetails];
     localStorage.setItem('events', JSON.stringify(getEventStore));
-    this._createEvents$.next(getEventStore);
   }
 
-  public createEvents$(): Observable<EventsModel> {
-    return this._createEvents$.asObservable();
+  public userEvents(userUuid: string): Observable<EventModel[]>{
+    const eventsStore = this.eventStore();
+    const eventsByUser = eventsStore[userUuid];
+
+    return of(eventsByUser);
   }
+
 }

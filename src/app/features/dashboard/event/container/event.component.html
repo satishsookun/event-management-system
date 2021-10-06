@@ -1,1 +1,29 @@
-events stat
+<div class="event">
+  <table>
+    <tr class="event__heading">
+      <td class="event__name">Event title: <span>{{event.name}}</span></td>
+      <td class="event__date">Event will occur on:  <span>{{humanDate}}</span></td>
+      <td class="event__action">
+        <table>
+          <tr>
+            <td>
+              <button class="btn-icon btn-icon__primary">
+                <mat-icon aria-hidden="false">edit</mat-icon>
+              </button>
+            </td>
+            <td>
+              <button class="btn-icon btn-icon__warning"  mat-button (click)="openDialog()">
+                <mat-icon aria-hidden="false">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="event__desc">
+        {{event.description}}
+      </td>
+    </tr>
+  </table>
+</div>

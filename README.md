@@ -24,6 +24,9 @@ localStorage
 ## Sass
   Make used of local and global variables in order to adapt our theme color easily
   
+## Responsiveness
+  The app is only adapted to desktop version as from 1024
+  
 ## Module
 Easy module loading approach was adapted.
 Each feature is a module which can be easily plug and play

@@ -5,7 +5,7 @@ Angular 12
 One page application
 
 ## Development server
-Copy and paste in your command prompt: https://github.com/satishsookun/event-management-system.git
+Copy and paste in your command prompt: git clone https://github.com/satishsookun/event-management-system.git
 `npm i` (to install all dependencies)
 
 Run `ng serve -o` to open automatically in browser OR
@@ -48,5 +48,5 @@ Angular material is used in order to give a good and feel interface to the app a
 
 ## Remaining
 - When creating a profile, username should have been checked in the store, whether it is available of not
-- Webpack implementation for a much better management of Input and output sources
+- Webpack implementation for a much better management of Input and output sources with the appropriate loaders. This will help to provide a production version bundle also.
 -   Can be done if you are interested in evaluating these section also 
